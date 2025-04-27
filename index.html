@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKT 유심 해킹 공동대응</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skt-leak-response.github.io/">
+    <meta property="og:title" content="SKT 유심 해킹 공동대응">
+    <meta property="og:description" content="SKT 유심 해킹 사건 관련 집단소송 관심도 설문조사 및 피해 대응 가이드">
+    <meta property="og:image" content="https://skt-leak-response.github.io/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://skt-leak-response.github.io/">
+    <meta property="twitter:title" content="SKT 유심 해킹 공동대응">
+    <meta property="twitter:description" content="SKT 유심 해킹 사건 관련 집단소송 관심도 설문조사 및 피해 대응 가이드">
+    <meta property="twitter:image" content="https://skt-leak-response.github.io/assets/og-image.jpg">
+
     <style>
         /* Basic Reset & Defaults */
         body {
@@ -79,22 +94,21 @@
                 font-size: 0.875rem; /* text-sm */
                 gap: 0.25rem; /* Reduce gap between logo and text */
             }
-            
+
             header a.logo img {
                 height: 2rem; /* Smaller logo on mobile */
             }
-            
+
             header button {
                 padding: 0.5rem 0.75rem; /* Smaller padding */
                 font-size: 0.875rem; /* text-sm */
             }
-            
+
             .container {
                 padding-left: 1rem; /* Slightly reduce container padding */
                 padding-right: 1rem;
             }
         }
-/* ... existing code ... */
 
         header button:hover {
             /* background-color: #b91c1c; */ /* Replaced by gradient */
@@ -136,6 +150,16 @@
             font-weight: 600;
         }
 
+        article h4 {
+           font-size: 1.25rem; /* text-xl */
+           line-height: 1.75rem;
+           color: #ffffff;
+           margin-top: 1.4em;
+           margin-bottom: 0.7em;
+           font-weight: 600;
+        }
+
+
         article p {
             margin-top: 1.25em;
             margin-bottom: 1.25em;
@@ -166,6 +190,16 @@
             left: -1em; /* Position marker */
             width: 1em;
         }
+         /* Nested lists */
+        article ul ul {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            padding-left: 1.5em; /* Indent nested list */
+        }
+         article ul ul li::before {
+             content: '-'; /* Use a dash for nested bullets */
+             color: #fca5a5; /* Lighter red */
+         }
 
 
         article strong {
@@ -240,6 +274,7 @@
             }
              article h2 { font-size: 2.25rem; line-height: 2.5rem;}
              article h3 { font-size: 1.875rem; line-height: 2.25rem;}
+             article h4 { font-size: 1.5rem; line-height: 2rem;}
              article table { font-size: 1em; }
          }
 
@@ -250,81 +285,11 @@
     <header>
         <div class="container">
             <a href="#" class="logo"><img src="assets/logo.png" alt="SKT 유심 해킹 공동대응"> SKT 유심 해킹 공동대응</a>
-            <button>집단소송 참여하기</button> </div>
+            <a href="https://tally.so/r/mVq40a" target="_blank"><button>설문조사 참여하기</button></a> </div>
     </header>
 
     <main class="container">
         <article>
-            <h2>📌 SK텔레콤 서버 침해 사고 – 통합 대응 가이드 <span style="font-size:0.8em;">(업데이트版)</span></h2>
-            <p>※ 기존 가이드의 핵심은 유지하되, ❶ 사고 핵심 정보 ❷ 대상별 대응 ❸ 보안 팁을 보강했습니다.</p>
-
-            <hr />
-
-            <h3>1. 사고 개요 및 위험도</h3>
-            <ul>
-                <li>SK텔레콤 일부 서버 침해로 <strong>IMSI(가입자번호)·IMEI(단말기번호)·USIM 인증키 일부</strong>가 외부 유출 정황 확인</li>
-                <li>주민등록번호·주소·결제정보는 포함되지 않았으나, 휴대폰을 특정·추적할 수 있는 <strong>식별·인증 정보</strong>여서 2차 공격(위치 추적·복제 USIM 제작 등) 위험 존재</li>
-            </ul>
-
-            <h3>2. 대상별 권장 대응</h3>
-            <ol>
-                <li>일반 이용자 → <strong>USIM만 교체</strong></li>
-                <li>공무원·보안담당 등 민감 정보 취급자 → <strong>USIM + 단말기 교체</strong> 고려</li>
-                <li>최근 <em>통화 끊김·이상 문자</em> 등 증상 시 → <strong>즉시 USIM 교체</strong>, 필요하면 단말 교체</li>
-            </ol>
-
-            <h3>3. 공통 필수 조치</h3>
-            <ol>
-                <li>
-                    <strong>USIM 교체</strong><br />
-                    가까운 T월드 대리점 방문 후 “SKT 사고 관련 새 USIM” 요청<br />
-                    3월 28일(예정)부터 <strong>교체 비용 전액 면제</strong>, 기존 USIM은 현장 폐기
-                </li>
-                <li>
-                    <strong>스마트폰 최신화</strong><br />
-                    OS·앱 업데이트 → 무료 백신(예: V3 Mobile, 카스퍼스키) 설치 후 전체 검사
-                </li>
-                <li>
-                    <strong>피싱·스미싱 주의</strong><br />
-                    “당첨/본인확인” 문자·모르는 번호 링크는 절대 클릭 금지
-                </li>
-                <li>
-                    <strong>통신사 보안 알림 켜기</strong><br />
-                    ‘T world’ 앱 설치 → “이상 로그인” 등 알림 <em>ON</em>
-                </li>
-            </ol>
-
-            <h3>4. 추가 보안 습관</h3>
-            <ul>
-                <li>통신사·포털 비밀번호를 <strong>문자+숫자+특수문자</strong> 조합으로 변경</li>
-                <li>은행·인증서 앱을 항상 최신으로 유지, 금융 알림(문자·푸시) 활성화</li>
-                <li>스팸·피싱이 계속되면 <strong>전화번호 변경</strong>까지 고려(최후수단)</li>
-            </ul>
-
-            <h3>5. 고령자·취약계층 지원</h3>
-            <p>가족·보호자가 ▲USIM 발급 ▲업데이트 ▲백신 설치 ▲이상 통화·문자 체크 등 리스트를 만들어 주기적 점검하고, 필요 시 <strong>114 무료 상담</strong> 연계</p>
-
-            <h3>6. 사고 모니터링 & 공식 발표</h3>
-            <ul>
-                <li>SKT 홈페이지·T world 공지사항 수시 확인</li>
-                <li>KISA ‘보호나라’ 긴급공지 참고</li>
-                <li>추가 피해 의심 시 KISA(118) 또는 경찰청 사이버수사국 신고</li>
-            </ul>
-
-            <hr />
-
-            <h3>🔎 한눈에 보는 핵심 포인트</h3>
-            <ul>
-                <li><strong>USIM은 가급적 빨리 교체</strong></li>
-                <li>단말 교체는 ‘민감 업무 종사자’ 또는 ‘이상 증상’ 시만 검토</li>
-                <li>OS·앱 업데이트·백신 검사·피싱 차단 알림 등 기본 보안 습관 유지</li>
-                <li>SKT 공식 공지를 지속적으로 확인</li>
-            </ul>
-
-            <p style="font-weight:600;">USIM 교체와 스마트폰·금융앱 최신화를 먼저 완료하면 대부분의 위험을 크게 줄일 수 있습니다.</p>
-
-            <h2>“휴대전화 열쇠가 복사됐어요!” – SKT 유심 해킹 사건 쉽게 이해하기</h2>
-
             <h3>1. 어떤 일이 일어난 건가요?</h3>
             <ul>
                 <li><strong>우리 휴대전화 안에는 작은 칩이 있는데, 이것을 유심(USIM)이라고 부릅니다.</strong>
@@ -372,7 +337,31 @@
                 <p><strong>중요한 사실</strong>: 유심 정보가 유출되면 전화번호 인증으로 운영되는 여러 서비스에 연쇄적으로 큰 피해가 생길 수 있습니다. 특히 IMEI까지 유출됐다면, 휴대전화 번호와 기기를 동시에 속이기 때문에 방어가 더 어려워집니다.</p>
             </blockquote>
 
-            <h3>3. 갑자기 전화가 안 된다면 위험 신호입니다!</h3>
+            <h3>3. 기기 교체까지 꼭 필요한가요?</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>내 상황</th>
+                        <th>어떻게 해야 할까요?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>일반 사용자 (민감한 정보 없음)</td>
+                        <td>유심만 교체하면 충분합니다.</td>
+                    </tr>
+                    <tr>
+                        <td>민감한 정보 다루는 사람 (공무원, 회사 업무 담당자 등)</td>
+                        <td>유심과 함께 휴대전화 기기도 교체하는 것이 더 안전합니다.</td>
+                    </tr>
+                    <tr>
+                        <td>이미 이상 증상 발생 (전화 끊김, 이상 문자 수신, 연결 문제 등)</td>
+                        <td>즉시 유심을 교체하고, 필요하면 휴대전화 기기까지 교체하세요.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4. 갑자기 전화가 안 된다면 위험 신호입니다!</h3>
             <ul>
                 <li>도둑이 내 번호를 훔쳐 가면, 내 휴대폰은 신호를 받지 못합니다.</li>
                 <li>갑자기 평소와 다르게
@@ -384,7 +373,7 @@
                 <li>이런 증상이 보이면 빨리 주변 사람들에게 연락해서 도움을 요청하는 것도 중요합니다.</li>
             </ul>
 
-            <h3>4. 지금 당장 해야 할 일</h3>
+            <h3>5. 지금 당장 해야 할 일</h3>
             <table>
                 <thead>
                     <tr>
@@ -416,7 +405,7 @@
                 </tbody>
             </table>
 
-            <h3>5. 자주 묻는 질문</h3>
+            <h3>6. 자주 묻는 질문</h3>
             <table>
                 <thead>
                     <tr>
@@ -448,7 +437,7 @@
                 </tbody>
             </table>
 
-            <h3>6. 앞으로 우리가 신경 써야 할 점</h3>
+            <h3>7. 앞으로 우리가 신경 써야 할 점</h3>
             <ul>
                 <li><strong>전화번호 인증만으로는 안전하지 않습니다.</strong>
                     <ul>
@@ -470,8 +459,7 @@
 
             <h3>한 줄 요약</h3>
             <p><strong>"우리 휴대전화 번호를 보호하는 유심의 열쇠와 휴대폰 번호까지 도둑에게 복사됐습니다."</strong> 가장 좋은 방법은 <strong>유심을 새로 교체하고, 문자 대신 앱으로 인증하며, 보호 서비스는 보조적으로 활용</strong>하는 것입니다.</p>
-
-        </article>
+            </article>
     </main>
 
     <footer>
