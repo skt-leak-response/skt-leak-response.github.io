@@ -255,6 +255,74 @@
 
     <main class="container">
         <article>
+            <h2>📌 SK텔레콤 서버 침해 사고 – 통합 대응 가이드 <span style="font-size:0.8em;">(업데이트版)</span></h2>
+            <p>※ 기존 가이드의 핵심은 유지하되, ❶ 사고 핵심 정보 ❷ 대상별 대응 ❸ 보안 팁을 보강했습니다.</p>
+
+            <hr />
+
+            <h3>1. 사고 개요 및 위험도</h3>
+            <ul>
+                <li>SK텔레콤 일부 서버 침해로 <strong>IMSI(가입자번호)·IMEI(단말기번호)·USIM 인증키 일부</strong>가 외부 유출 정황 확인</li>
+                <li>주민등록번호·주소·결제정보는 포함되지 않았으나, 휴대폰을 특정·추적할 수 있는 <strong>식별·인증 정보</strong>여서 2차 공격(위치 추적·복제 USIM 제작 등) 위험 존재</li>
+            </ul>
+
+            <h3>2. 대상별 권장 대응</h3>
+            <ol>
+                <li>일반 이용자 → <strong>USIM만 교체</strong></li>
+                <li>공무원·보안담당 등 민감 정보 취급자 → <strong>USIM + 단말기 교체</strong> 고려</li>
+                <li>최근 <em>통화 끊김·이상 문자</em> 등 증상 시 → <strong>즉시 USIM 교체</strong>, 필요하면 단말 교체</li>
+            </ol>
+
+            <h3>3. 공통 필수 조치</h3>
+            <ol>
+                <li>
+                    <strong>USIM 교체</strong><br />
+                    가까운 T월드 대리점 방문 후 “SKT 사고 관련 새 USIM” 요청<br />
+                    3월 28일(예정)부터 <strong>교체 비용 전액 면제</strong>, 기존 USIM은 현장 폐기
+                </li>
+                <li>
+                    <strong>스마트폰 최신화</strong><br />
+                    OS·앱 업데이트 → 무료 백신(예: V3 Mobile, 카스퍼스키) 설치 후 전체 검사
+                </li>
+                <li>
+                    <strong>피싱·스미싱 주의</strong><br />
+                    “당첨/본인확인” 문자·모르는 번호 링크는 절대 클릭 금지
+                </li>
+                <li>
+                    <strong>통신사 보안 알림 켜기</strong><br />
+                    ‘T world’ 앱 설치 → “이상 로그인” 등 알림 <em>ON</em>
+                </li>
+            </ol>
+
+            <h3>4. 추가 보안 습관</h3>
+            <ul>
+                <li>통신사·포털 비밀번호를 <strong>문자+숫자+특수문자</strong> 조합으로 변경</li>
+                <li>은행·인증서 앱을 항상 최신으로 유지, 금융 알림(문자·푸시) 활성화</li>
+                <li>스팸·피싱이 계속되면 <strong>전화번호 변경</strong>까지 고려(최후수단)</li>
+            </ul>
+
+            <h3>5. 고령자·취약계층 지원</h3>
+            <p>가족·보호자가 ▲USIM 발급 ▲업데이트 ▲백신 설치 ▲이상 통화·문자 체크 등 리스트를 만들어 주기적 점검하고, 필요 시 <strong>114 무료 상담</strong> 연계</p>
+
+            <h3>6. 사고 모니터링 & 공식 발표</h3>
+            <ul>
+                <li>SKT 홈페이지·T world 공지사항 수시 확인</li>
+                <li>KISA ‘보호나라’ 긴급공지 참고</li>
+                <li>추가 피해 의심 시 KISA(118) 또는 경찰청 사이버수사국 신고</li>
+            </ul>
+
+            <hr />
+
+            <h3>🔎 한눈에 보는 핵심 포인트</h3>
+            <ul>
+                <li><strong>USIM은 가급적 빨리 교체</strong></li>
+                <li>단말 교체는 ‘민감 업무 종사자’ 또는 ‘이상 증상’ 시만 검토</li>
+                <li>OS·앱 업데이트·백신 검사·피싱 차단 알림 등 기본 보안 습관 유지</li>
+                <li>SKT 공식 공지를 지속적으로 확인</li>
+            </ul>
+
+            <p style="font-weight:600;">USIM 교체와 스마트폰·금융앱 최신화를 먼저 완료하면 대부분의 위험을 크게 줄일 수 있습니다.</p>
+
             <h2>“휴대전화 열쇠가 복사됐어요!” – SKT 유심 해킹 사건 쉽게 이해하기</h2>
 
             <h3>1. 어떤 일이 일어난 건가요?</h3>
@@ -408,7 +476,9 @@
 
     <footer>
         <div class="container">
-            © 2025 SKT 유심 해킹 공동대응 참여자들 </div>
+            © 2025 SKT 유심 해킹 공동대응 참여자들 ·
+            <a href="https://x.com/sktleakresponse/status/1916364242250568136" target="_blank" rel="noopener noreferrer">트위터 공지</a>
+        </div>
     </footer>
 
 </body>

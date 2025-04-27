@@ -1,0 +1,28 @@
+{
+  "name": "skt-nearby-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Find nearby SKT direct stores with Naver Map – Next.js demo",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-kakao-maps-sdk": "^1.1.27"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skt-leak-response/skt-leak-response.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skt-leak-response/skt-leak-response.github.io/issues"
+  },
+  "homepage": "https://github.com/skt-leak-response/skt-leak-response.github.io#readme"
+}
