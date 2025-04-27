@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“휴대전화 열쇠가 복사됐어요!” – SKT 유심 해킹 사건 쉽게 이해하기</title>
+    <style>
+        /* Basic Reset & Defaults */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #111827; /* Equivalent to bg-gray-900 */
+            color: #e5e7eb; /* Equivalent to text-gray-200 */
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1024px; /* lg */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem; /* px-6 */
+            padding-right: 1.5rem; /* px-6 */
+        }
+
+        /* Header */
+        header {
+            background-color: #1f2937; /* Slightly lighter dark for header */
+            padding-top: 0.75rem; /* py-3 */
+            padding-bottom: 0.75rem; /* py-3 */
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #374151; /* gray-700 border */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a.logo {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        header a.logo:hover {
+            color: #d1d5db; /* text-gray-300 */
+        }
+
+        header button {
+            background-color: #dc2626; /* bg-red-600 */
+            color: #ffffff;
+            font-weight: bold;
+            padding: 0.5rem 1rem; /* py-2 px-4 */
+            border: none;
+            border-radius: 0.375rem; /* rounded */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        header button:hover {
+            background-color: #b91c1c; /* hover:bg-red-700 */
+        }
+
+        /* Main Content Area */
+        main {
+            padding-top: 3rem;    /* py-12 */
+            padding-bottom: 3rem; /* py-12 */
+        }
+
+        /* Article Typography (Prose Invert Equivalent) */
+        article h2 {
+            font-size: 1.875rem; /* text-3xl */
+            line-height: 2.25rem;
+            color: #ffffff;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 700;
+            border-bottom: 1px solid #4b5563; /* gray-600 */
+            padding-bottom: 0.3em;
+        }
+
+        article h3 {
+            font-size: 1.5rem; /* text-2xl */
+            line-height: 2rem;
+            color: #ffffff;
+            margin-top: 1.6em;
+            margin-bottom: 0.8em;
+            font-weight: 600;
+        }
+
+        article p {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            color: #d1d5db; /* text-gray-300 */
+        }
+
+        article ul {
+            list-style: none; /* Remove default */
+            padding-left: 1.5em;
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+        }
+
+        article li {
+           position: relative;
+           padding-left: 0.5em; /* Space for marker */
+           margin-top: 0.5em;
+           margin-bottom: 0.5em;
+           color: #d1d5db;
+        }
+
+        article li::before {
+            content: '•'; /* Bullet character */
+            color: #f87171; /* text-red-400 */
+            font-weight: bold;
+            display: inline-block;
+            position: absolute;
+            left: -1em; /* Position marker */
+            width: 1em;
+        }
+
+
+        article strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        article blockquote {
+            margin-top: 1.6em;
+            margin-bottom: 1.6em;
+            padding-left: 1em;
+            border-left: 4px solid #ef4444; /* border-l-red-500 */
+            color: #d1d5db; /* text-gray-300 */
+            font-style: italic;
+        }
+        article blockquote p {
+            margin: 0; /* Reset paragraph margin inside blockquote */
+             color: #d1d5db;
+        }
+
+
+        article table {
+            width: 100%;
+            margin-top: 1.6em;
+            margin-bottom: 1.6em;
+            border-collapse: collapse;
+            border: 1px solid #4b5563; /* gray-600 */
+            font-size: 0.9em;
+        }
+
+        article th,
+        article td {
+            border: 1px solid #4b5563; /* gray-600 */
+            padding: 0.75em 1em;
+            text-align: left;
+            vertical-align: top; /* Align content top */
+        }
+
+        article th {
+            background-color: #374151; /* gray-700 */
+            color: #f3f4f6; /* gray-100 */
+            font-weight: 600;
+        }
+
+        article td {
+             color: #d1d5db; /* text-gray-300 */
+        }
+
+        /* Make links slightly more visible */
+        article a {
+            color: #93c5fd; /* light blue */
+            text-decoration: underline;
+        }
+         article a:hover {
+             color: #60a5fa;
+         }
+
+         /* Footer */
+         footer {
+            background-color: #1f2937;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+            color: #9ca3af; /* gray-400 */
+            font-size: 0.875rem;
+         }
+
+         /* Responsive adjustments (example for larger screens) */
+         @media (min-width: 1024px) {
+            article {
+                 font-size: 1.125rem; /* lg:prose-xl base size */
+            }
+             article h2 { font-size: 2.25rem; line-height: 2.5rem;}
+             article h3 { font-size: 1.875rem; line-height: 2.25rem;}
+             article table { font-size: 1em; }
+         }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">SKT 유심 해킹 공동대응</a>
+            <button>집단소송 참여하기</button> </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <h2>“휴대전화 열쇠가 복사됐어요!” – SKT 유심 해킹 사건 쉽게 이해하기</h2>
+
+            <h3>1. 어떤 일이 일어난 건가요?</h3>
+            <ul>
+                <li><strong>우리 휴대전화 안에는 작은 칩이 있는데, 이것을 유심(USIM)이라고 부릅니다.</strong>
+                    <ul>
+                        <li>유심은 휴대전화가 "이 번호 주인이 맞아요!"라고 증명해 주는 <strong>전자 신분증</strong>과 같습니다.</li>
+                    </ul>
+                </li>
+                <li>이번에 해킹된 사건에서는 이 유심 안에 있는 <strong>중요한 비밀 정보(열쇠)가 도둑들에게 복사된 것</strong>으로 보입니다.
+                    <ul>
+                        <li>심지어 휴대전화마다 고유하게 붙어 있는 <strong>IMEI라는 번호</strong>까지 유출되었다고 합니다.</li>
+                        <li>쉽게 말하면, 집 열쇠뿐 아니라 대문 비밀번호, 초인종까지 모두 도둑 손에 넘어간 상황이라고 생각하면 됩니다.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>2. 도둑이 이 '복사된 열쇠'로 무엇을 할 수 있나요?</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>도둑이 할 수 있는 일</th>
+                        <th>우리에게 일어날 수 있는 피해</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>복사된 유심으로 가짜 유심을 만들어 자기 폰에 꽂는다</strong></td>
+                        <td>내 전화번호가 도둑의 휴대전화로 이동합니다.<br>내 휴대전화는 갑자기 <strong>전화·문자가 되지 않습니다.</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>인증번호 문자 훔쳐가기</strong></td>
+                        <td>은행, 카카오톡, 인터넷 쇼핑몰 등에서 오는 <strong>인증 번호 문자가 도둑에게 갑니다.</strong><br>도둑이 내 계정을 마음대로 잠그거나 비밀번호를 바꿀 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>내 번호로 사기 문자·전화 보내기</strong></td>
+                        <td>내 번호로 가족이나 지인들에게 사기 전화를 걸거나 문자를 보내 속일 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>이미 다른 개인정보까지 유출된 경우</strong></td>
+                        <td>주민등록번호 같은 개인정보와 전화번호 인증을 합쳐, 내 명의로 대출이나 은행 계좌를 만드는 등 큰 피해를 줄 수 있습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                <p><strong>중요한 사실</strong>: 유심 정보가 유출되면 전화번호 인증으로 운영되는 여러 서비스에 연쇄적으로 큰 피해가 생길 수 있습니다. 특히 IMEI까지 유출됐다면, 휴대전화 번호와 기기를 동시에 속이기 때문에 방어가 더 어려워집니다.</p>
+            </blockquote>
+
+            <h3>3. 갑자기 전화가 안 된다면 위험 신호입니다!</h3>
+            <ul>
+                <li>도둑이 내 번호를 훔쳐 가면, 내 휴대폰은 신호를 받지 못합니다.</li>
+                <li>갑자기 평소와 다르게
+                    <ul>
+                        <li>전화·문자가 안 되거나</li>
+                        <li>"긴급통화만 가능합니다"라는 메시지가 뜨면 즉시 조심하고 통신사에 연락해야 합니다.</li>
+                    </ul>
+                </li>
+                <li>이런 증상이 보이면 빨리 주변 사람들에게 연락해서 도움을 요청하는 것도 중요합니다.</li>
+            </ul>
+
+            <h3>4. 지금 당장 해야 할 일</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>지금 바로 할 일</th>
+                        <th>왜 필요한가요?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>유심 카드 새로 교체하기</strong></td>
+                        <td>새 유심에는 새로운 열쇠가 들어 있어, 도둑의 복사본은 무용지물이 됩니다.<br>가족들 모두 빠르게 교체하면 좋습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>통신사 ‘유심 보호 서비스’ 신청하기</strong><br>(※ 해외 여행 시 사용이 불가능함)</td>
+                        <td>모르는 휴대전화가 내 번호를 쓰려 할 때 자동으로 막아 줍니다.<br><strong>단, 이번 사건처럼 IMEI까지 유출되었고, 도둑이 기기 번호를 조작하면 뚫릴 가능성이 있습니다.</strong><br>그래서 유심 교체가 가장 중요하고, 이 서비스는 추가적인 안전장치로 생각하세요.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>문자 인증 대신 앱 기반 인증 사용하기</strong></td>
+                        <td>은행이나 카카오톡에서 제공하는 앱 알림, OTP, 간편 인증 등을 쓰면 문자가 도둑에게 가지 않게 막을 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>중요한 계정의 비밀번호 바꾸기</strong></td>
+                        <td>이메일, 은행, SNS 등 주요 계정의 비밀번호를 복잡하게 바꾸고, 가능하면 2단계 인증(앱 인증)을 활성화하세요.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>평소 개인정보 관리 철저히 하기</strong></td>
+                        <td>주민등록번호, 신분증 사진, 계좌번호 같은 중요한 개인정보는 철저히 관리하고, 인터넷이나 문자 메시지를 통해 함부로 제공하지 마세요.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5. 자주 묻는 질문</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>질문</th>
+                        <th>쉬운 설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>"주민등록번호도 유출됐나요?"</strong></td>
+                        <td>이번엔 유심 정보가 주로 유출된 것으로 보입니다. 하지만 이미 다른 곳에서 개인정보가 유출됐다면 위험이 더 커집니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>"가짜 유심이 두 대의 휴대폰에서 동시에 사용 가능한가요?"</strong></td>
+                        <td>두 대 중 한 대만 작동하고 다른 한 대는 자동으로 끊깁니다. 운이 나쁘면 내 휴대전화가 끊길 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>"유심 보호 서비스만 신청하면 안전한가요?"</strong></td>
+                        <td>평소엔 도움이 되지만, IMEI가 함께 유출되어 기기 번호까지 바꿀 수 있다면 이 보호 서비스도 무력화될 수 있습니다. 유심 교체가 가장 안전합니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>"유심에 비밀번호(PIN)를 설정하면 안전할까요?"</strong></td>
+                        <td>PIN은 휴대폰 자체를 잃어버렸을 때를 대비하는 것이며, 이번 사건처럼 이미 유심 열쇠가 복사됐다면 효과가 없습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>"해외여행 중 보호 서비스 때문에 로밍이 안 되면 어떻게 하나요?"</strong></td>
+                        <td>출국 전에 새 유심으로 교체한 뒤 로밍을 신청하거나, 로밍 기간 동안만 보호 서비스를 잠시 꺼 둘 수 있습니다. 통신사에 미리 문의하세요.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6. 앞으로 우리가 신경 써야 할 점</h3>
+            <ul>
+                <li><strong>전화번호 인증만으로는 안전하지 않습니다.</strong>
+                    <ul>
+                        <li>해외처럼 별도의 인증 앱이나 보안 토큰을 사용하는 방향으로 바뀌어야 합니다.</li>
+                    </ul>
+                </li>
+                <li><strong>통신사도 보안을 더 철저히 해야 합니다.</strong>
+                    <ul>
+                        <li>유심 열쇠를 보관하는 서버는 더 강력하게 보호되어야 합니다.</li>
+                    </ul>
+                </li>
+                <li><strong>개인들도 조심하는 습관을 가져야 합니다.</strong>
+                    <ul>
+                        <li>문자가 오면 바로 클릭하지 말고, 의심스러운 문자는 보내는 사람을 꼭 확인하고 전화로 물어보세요.</li>
+                        <li>개인정보 요청하는 전화나 문자는 특히 조심하세요.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>한 줄 요약</h3>
+            <p><strong>"우리 휴대전화 번호를 보호하는 유심의 열쇠와 휴대폰 번호까지 도둑에게 복사됐습니다."</strong> 가장 좋은 방법은 <strong>유심을 새로 교체하고, 문자 대신 앱으로 인증하며, 보호 서비스는 보조적으로 활용</strong>하는 것입니다.</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 SKT 유심 해킹 공동대응 참여자들 </div>
+    </footer>
+
+</body>
+</html>
