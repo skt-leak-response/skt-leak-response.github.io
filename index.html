@@ -74,6 +74,91 @@
             color: #d1d5db; /* text-gray-300 */
         }
 
+        /* Navigation styles */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links .cta-button {
+            background-image: linear-gradient(to bottom, #ef4444, #dc2626);
+            color: #ffffff;
+            font-weight: bold;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #b91c1c;
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+            box-shadow: 0 0 8px 2px rgba(239, 68, 68, 0.4);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links .cta-button:hover {
+            background-image: linear-gradient(to bottom, #dc2626, #b91c1c);
+            box-shadow: 0 0 12px 4px rgba(239, 68, 68, 0.5);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .mobile-menu-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1f2937;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-bottom: 1px solid #374151;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem;
+            }
+
+            .nav-links .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
         header button {
             background-image: linear-gradient(to bottom, #ef4444, #dc2626);
             color: #ffffff;
@@ -282,18 +367,54 @@
 </head>
 <body>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const isExpanded = navLinks.classList.contains('active');
+                mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.mobile-menu-button') && 
+                    !event.target.closest('.nav-links') && 
+                    navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuButton.setAttribute('aria-expanded', false);
+                }
+            });
+        });
+    </script>
+
     <header>
         <div class="container">
-            <a href="#" class="logo"><img src="assets/logo.png" alt="SKT 유심 해킹 공동대응"> SKT 유심 해킹 공동대응</a>
-            <a href="https://petitions.assembly.go.kr/proceed/registered/32763DC66CF6542EE064B49691C1987F" target="_blank"><button>국회 국민동의 청원 참여하기</button></a> </div>
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="SKT 유심 해킹 공동대응">
+                SKT 유심 해킹 공동대응
+            </a>
+            <button class="mobile-menu-button" aria-label="메뉴 열기">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <nav class="nav-links">
+                <a href="https://action.sktleakresponse.online" target="_blank">국회의원에게 이메일 쓰기</a>
+                <a href="https://petitions.assembly.go.kr/proceed/registered/32763DC66CF6542EE064B49691C1987F" target="_blank" class="cta-button">국회 청원 참여하기</a>
+            </nav>
+        </div>
     </header>
 
     <main class="container">
         <article>
             <h2>제작자 및 운영진</h2>
             <p><strong><a href="https://x.com/unifiedh" target="_blank">홍석현 (Daniel Hong)</a>, <a href="https://x.com/sigridjin_eth" target="_blank">박진형 (Sigrid Jin)</a> 제작 및 운영</strong></p>
-            <h2>SKT 유심 해킹 사건 관련 국회 국민동의 청원</h2>
+            <h2>SKT 유심 해킹 사건 관련 국회 국민동의 청원 및 국회의원 이메일 보내기</h2>
             <p><strong>현재 <a href="https://petitions.assembly.go.kr/proceed/registered/32763DC66CF6542EE064B49691C1987F" target="_blank">국회 국민동의 청원</a>이 진행 중입니다. 5만 명 이상의 동의를 받을 수 있도록 많은 참여 부탁드립니다.</p></strong>
+            <p>또한, 국회의원에게 이메일을 보내고 싶으신 분들은 <a href="https://action.sktleakresponse.online" target="_blank">국회의원에게 이메일 쓰기</a> 페이지를 참고해주세요.</p>
             <p>참여하신 분들은 <a href="https://open.kakao.com/o/gxPPOlth" target="_blank">카카오톡 오픈채팅방</a>에 가입하시어 의견을 표명해주시면 감사드리겠습니다.</p>
             <h2>eSIM 지원 휴대전화 모델이라면, 대리점 말고 온라인에서 편리하게 유심 교체하세요!</h2>
             <p><a href="https://shop.tworld.co.kr/dsds/esim-support-device" target="_blank">eSIM 지원 휴대전화 모델</a>을 보유하고 계시다면, T월드의 <a href="https://shop.tworld.co.kr/dsds/esim-main" target="_blank">eSIM 셀프 개통</a> 메뉴를 통해 직접 유심을 교체하실 수 있습니다.</p>
